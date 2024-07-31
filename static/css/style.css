@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap');
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.shadow-box {
+    box-shadow: none;
+}
+
+.padding-box {
+    padding: none;
+}
+
+.border-radius-box {
+    border-radius: none;
+}
+
+
+.shadow-box-- {
+    box-shadow: 0px 0px 38px -20px rgba(0, 0, 0, 0.25);
+}
+
+.padding-box-- {
+    padding: 55px 74px;
+}
+
+.border-radius-box-- {
+    border-radius: 8px;
+}
+
+@media screen and (min-width: 1024px) {
+    .shadow-box {
+        box-shadow: 0px 0px 38px -20px rgba(0, 0, 0, 0.25);
+    }
+
+    .padding-box {
+        padding: 55px 74px;
+    }
+
+    .border-radius-box {
+        border-radius: 8px;
+    }
+}
+
+
+
+.hero-section-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0.3rem;
+    margin-bottom: 7rem;
+}
+
+.hero-section-image {
+    width: 100vw;
+    height: 45vh;
+    user-select: none;
+    filter: brightness(0.9) contrast(0.5);
+    object-fit: cover;
+
+}
+
+.hero-section-title-container {
+    width: 100vw;
+    position: absolute;
+    font-weight: 600;
+    font-size: 3.5rem;
+}
+
+.hero-section-title {
+    margin: auto;
+    color: aliceblue;
+}
+
+.hero-section-description-container {
+    margin: auto;
+    font-size: 1.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.hero-section-description-title {
+    font-size: 1.9rem;
+    line-height: 20px;
+}
+
+.hero-section-description-text {
+    font-size: 1rem;
+    letter-spacing: 0.01rem;
+    line-height: 19px;
+}
+
+.servives-wrapper {
+    margin: auto;
+    font-size: 1.9rem;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    column-gap: 10px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    border-radius: 7px;
+    border: 0.2px solid rgba(0, 0, 0, 0.089);
+    padding-bottom: 1.7rem;
+    transition: 0.3s ease-in-out all;
+    cursor: pointer;
+    flex: 1 0 27%;
+    max-width: 300px;
+    min-width: 250px;
+}
+
+.service-card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding-top: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.service-card-image {
+    border-radius: 7px 7px 0 0;
+    filter: blur(0.01px);
+    scale: 1;
+    transition: 0.3s ease-in-out all;
+    width: 100%;
+}
+
+.service-card:hover .service-card-image {
+    filter: blur(0px);
+    scale: 1.01;
+}
+
+.service-card-content-title {
+    font-size: 1.5rem;
+    margin: 0;
+    line-height: 26px;
+}
+
+.service-card-content-text {
+    font-size: 1rem;
+    letter-spacing: 0.009rem;
+    line-height: 1.6rem;
+
+}
+
+.body-button {
+    padding: 10px 18px;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.margin-0 {
+    margin: 0;
+}
+
+.call-button {
+    background-color: #343e5e;
+    transition: transform .45s;
+    padding: 12px 25px;
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+    border-color: #343e5e;
+}
+
+.get-started-button {
+    padding: 20px 29px;
+    font-size: 13px;
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+    border-color: #343e5e;
+    box-shadow: -5px 5px 0px 0px rgba(52, 62, 94, 1);
+}
+
+.call-button img {
+    width: 35px;
+}
+
+.call-button p {
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: capitalize;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+
+.hero-btn-flex {
+    grid-column-gap: 0px;
+}
+
+
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+@media screen and (max-width: 1169px) {
+
+
+    .body-button {
+        padding: 11px 42px !important;
+    }
+}
+
+@media screen and (max-width: 873px) {}
+
+

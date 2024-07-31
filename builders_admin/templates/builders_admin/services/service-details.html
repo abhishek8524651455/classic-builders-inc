@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Classic Builders INC</title>
+    <link rel="stylesheet" href="{% static "/css/admin-styling/tw.css" %}">
+    <link rel="stylesheet" href="{% static "css/admin-styling/style.css" %}">
+    <link rel="shortcut icon" href="https://showcaseonline.store/classic-builders-inc/logo-2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static "css/admin-styling/tinymce-resets.css" %}">
+    <script src="{% static "js/tinymce/js/tinymce/tinymce.min.js" %}"></script>
+</head>
+<body class="bg-[#272f40]">
+    <main class="flex flex-col-reverse lg:flex-row max-w-maincontent m-auto bg-white">
+        {% include "builders_admin/navbar.html" %}
+        <aside class="p-6">
+            <section>
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">{{ service.short_heading }}</h1>
+                </div>
+                <form class="item flex gap-6 justify-center items-center flex-col-reverse lg:flex-row" action="{% url 'builders_admin:detailed_service' service.service_id %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div>
+                        <textarea id="service-detail-editor" name="description">
+                            {{ service.description}}
+                        </textarea>
+                        <div class="flex justify-center items-center gap-4">
+                            <input type="text" class="bg-primary text-black mt-2 px-2 py-2 text-center rounded-md w-full text-base outline-none transition ease-in delay-100 focus:bg-blue-50 placeholder:text-black " placeholder="Know More" value="{{ service.book_now_button_text }}" name="book_now_button_text">
+                            <button type="submit" name="action" value="update-service-details" class="bg-blue-500 mt-2 px-2 py-2 text-center rounded-md w-full text-base outline-none text-white transition ease-in delay-100 focus:bg-green-500" title="Update and Save">Save</button>
+                        </div>
+                    </div>
+    
+                    <div class="relative image-container">
+                        <img class="display-image rounded-md select-none cursor-pointer hover:contrast-[1.15] transition ease-in delay-100 max-w-md" src="{{ service.image.url }}" alt="{{ service.alt_image }}" draggable="false">
+                        <input type="file" accept="image/*" class="hidden" name="image">
+                    </div>
+                </form>
+            </section>
+
+            <section class="mt-12">
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">View</h1>
+                </div>
+
+                <form action="{% url 'builders_admin:detailed_service' service.service_id %}" method="post" enctype="multipart/form-data">
+                   {% csrf_token %}
+                    <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-blue-50 sm:py-3" placeholder="Heading" value="{{ service.before_after_heading }}" name="before_after_heading">
+                    <div class="mt-2 flex justify-center items-center gap-2 flex-col lg:flex-row">
+                        <div class="item">
+                            <div class="image-container">
+                                <img class="display-image rounded-md select-none cursor-pointer hover:contrast-[1.15] transition ease-in delay-100" src="{{ service.before_image.url }}" alt="{{ service.alt_before_image }}" draggable="false">
+                                <input type="file" accept="image/*" class="hidden" name="before_image">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="image-container">
+                                <img class="display-image rounded-md select-none cursor-pointer hover:contrast-[1.15] transition ease-in delay-100" src="{{ service.after_image.url }}" alt="{{ service.alt_after_image }}" draggable="false">
+                                <input type="file" accept="image/*" class="hidden" name="after_image">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" name="action" value="update-before-after" class="bg-blue-500 mt-2 px-2 py-2 text-center rounded-md w-full text-base outline-none text-white transition ease-in delay-100 focus:bg-green-500" title="Update and Save">Save</button>
+                </form>
+            </section>
+        </aside>
+    </main>
+
+    <script src="{% static "js/admin-scripts/nav-sub-menu.js" %}"></script>
+    <script type="module" src="{% static "js/admin-scripts/item-management.mjs" %}"></script>
+    <script src="{% static "js/admin-scripts/tinymce-settings.js" %}"></script>
+</body>
+</html>

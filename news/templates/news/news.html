@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html
+  data-wf-page="64ddb2f80e56ffe6218ca2f0"
+  data-wf-site="649a95c241c0447e7e6ce0d5"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Classic Builders Inc. provides news and analysis for general contracting projects. We cover news, focusing on topics of home construction, bathroom renovation…"
+    />
+    <meta name="keywords" content="News" />
+    <title>Read Our Latest News & Insights | Classic Builders Inc</title>
+    <link
+      href="{% static 'images/fav-2.png' %}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/webflow.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" />
+  </head>
+  <body>
+    <!-- Navbar Section Starts Here -->
+    {% include "navigator/navbar.html" %}
+    <!-- Navbar Section Ends Here -->
+
+    <!-- Hero Section Starts Here -->
+    <section>
+      <div class="relative flex justify-start items-center mt-1 mb-16">
+        <img
+          class="w-[100vw] h-[45vh] select-none brightness-90 contrast-50 object-cover"
+          src="{{ banner.image.url }}"
+          alt="{{ banner.alt_image }}"
+          draggable="false"
+        />
+        <div class="w-[100vw] absolute">
+          <h1
+            class="text-white text-3xl font-semibold px-11 sm:text-5xl container-one m-auto lg:px-0"
+          >
+            {{ banner.heading }}
+          </h1>
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section Ends Here -->
+
+    <!-- Blogs  Section Starts Here -->
+    <section class="my-20">
+      <div
+        class="container-one m-auto flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap ease-in duration-300"
+      >
+      {% for news in all_news %}
+      {% if news %}
+      <!-- News Item Starts Here -->
+      <a href="{% url "news:detailed_news" news.news_id %}" class="ease-in duration-300">
+        <div
+          style="border: 1px solid #80808030"
+          class="max-w-[400px] flex flex-col gap-2 text-black ease-in duration-300 rounded-md group"
+        >
+          <div class="relative flex justify-center items-center">
+            <img
+              class="w-full select-none brightness-75 group-hover:brightness-[0.4] ease-in duration-300 rounded-t-md"
+              src="{{ news.thumbnail.url }}"
+              alt="{{ news.alt_thumbnail}}"
+              draggable="false"
+            />
+            <i
+              class="fas fa-long-arrow-alt-right text-white absolute opacity-0 ease-in duration-300 group-hover:opacity-100"
+              aria-hidden="true"
+            ></i>
+            <p
+              class="absolute top-4 right-4 text-black font-semibold text-xs group-hover:opacity-0"
+            >
+            {{ news.created_at }}
+          </p>
+          </div>
+          <div class="px-6">
+            <h4 class="font-semibold text-[1.05rem] leading-7">
+              {{ news.short_heading }}
+            </h4>
+          </div>
+          <div class="flex flex-col gap-4 px-6 pb-8">
+            <p class="text-base leading-6 text-black">
+              {{ news.short_description }}
+            </p>
+            <p
+              class="text-base leading-6 text-[#f6b61b] hover:underline ease-in duration-300"
+            >
+            {{ news.info_button_text }}
+            </p>
+          </div>
+        </div>
+      </a>
+      <!-- News Item Ends Here -->
+      {% endif %}
+      {% endfor %}
+      </div>
+    </section>
+    <!-- Blogs  Section Ends Here -->
+
+    <!-- Footer Section Starts Here -->
+    {% include "footer/footer.html" %}
+    <!-- Footer Section Ends Here -->
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/webflow.js' %}"></script>
+    <script src="{% static 'js/swiper.js' %}"></script>
+    <script src="{% static 'js/swiper-settings.js' %}"></script>
+  </body>
+</html>

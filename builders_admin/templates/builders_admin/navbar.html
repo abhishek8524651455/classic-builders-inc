@@ -1,0 +1,135 @@
+{% load static %}
+<header class="bg-secondary h-fit fixed left-0 right-0 bottom-0 lg:-translate-x-1 lg:h-[100vh] lg:min-w-56 lg:sticky lg:top-0 z-50 overflow-y-auto overflow-x-hidden">
+    <!-- Site Logo Here -->
+    <a href="###" class="hidden lg:block">
+        <img class="w-44 px-8 py-6" src="https://showcaseonline.store/classic-builders-inc/logo-2-w.png" alt="site-logo">
+    </a>
+
+    <!-- Navbar Starts Here -->
+    <ul class="lg:mt-8 flex justify-start items-center xsm:justify-center lg:flex-col lg:items-start lg:gap-8 overflow-x-scroll lg:overflow-hidden">
+        
+        
+        <div class="nav-item relative">
+            <button class="transition ease-in delay-100 group">
+                <li class="text-xl lg:text-base flex items-center gap-3 mx-1 py-3 px-8 rounded-sm transition ease-in delay-100 hover:bg-white group {% if current_view == 'home' %}active-nav{% endif %}">
+                    <i class="fa-solid fa-house text-white group-hover:text-secondary transition ease-in delay-100"></i>
+                    <p class="text-white text-sm font-semibold group-hover:text-secondary transition ease-in delay-100 hidden lg:block">Home</p>
+                    <i class="fa-solid fa-chevron-down text-white text-sm"></i>
+                </li>
+            </button>
+
+            <ul class=" overflow-hidden transition ease-in delay-300 rounded-t-md fixed bottom-[5.9%] bg-primary lg:static lg:bg-transparent my-2 h-0 sub-menu">
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:home_view" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'home' %}text-white lg:text-primary{% endif %}">Home</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:banner_home" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'banner' %}text-white lg:text-primary{% endif %}">Banner</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:about_as_home" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'about-us' %}text-white lg:text-primary{% endif %}">About Us</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:why_us" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'why-us' %}text-white lg:text-primary{% endif %}">Why Us</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:main_services" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'main_services' %}text-white lg:text-primary{% endif %}">Main Services</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:specialized_in" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'specialized_in' %}text-white lg:text-primary{% endif %}">Specialized In</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:recent_projects" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'projects' %}text-white lg:text-primary{% endif %}">Recent Projects</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:testimonials" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'testimonials' %}text-white lg:text-primary{% endif %}">Testimonials</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-item relative">
+            <button class="transition ease-in delay-100 group">
+                
+                <li class="text-xl lg:text-base flex items-center gap-3 mx-1 py-3 px-8 rounded-sm transition ease-in delay-100 hover:bg-white group {% if current_view == 'about-us' %}active-nav{% endif %}">
+                    <i class="fa-solid fa-circle-info text-white group-hover:text-secondary transition ease-in delay-100"></i>
+                    <p class="text-white text-sm font-semibold group-hover:text-secondary transition ease-in delay-100 hidden lg:block">About Us</p>
+                    <i class="fa-solid fa-chevron-down text-white text-sm"></i>
+                </li>
+            </button>
+
+            <ul class=" overflow-hidden transition ease-in delay-300 rounded-t-md fixed bottom-[5.9%] bg-primary lg:static lg:bg-transparent my-2 h-0 sub-menu">
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:about_view" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'about-us-2' %}text-white lg:text-primary{% endif %}">About Us</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:banner_about" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'banner-about' %}text-white lg:text-primary{% endif %}">Banner</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:company_profile" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'company-profile' %}text-white lg:text-primary{% endif %}">Company Profile</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-item relative">
+            <button class="transition ease-in delay-100 group">
+                <li class="text-xl lg:text-base flex items-center gap-3 mx-1 py-3 px-8 rounded-sm transition ease-in delay-100 hover:bg-white group {% if current_view == 'services-overview' %}active-nav{% endif %}">
+                    <i class="fa-solid fa-building text-white group-hover:text-secondary transition ease-in delay-100"></i>
+                    <p class="text-white text-sm font-semibold group-hover:text-secondary transition ease-in delay-100 hidden lg:block">Services</p>
+                    <i class="fa-solid fa-chevron-down text-white text-sm"></i>
+                </li>
+            </button>
+
+            <ul class=" overflow-hidden transition ease-in delay-300 rounded-t-md fixed bottom-[5.9%] bg-primary lg:static lg:bg-transparent my-2 h-0 sub-menu">
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:services_overview" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'services-overview' %}text-white lg:text-primary{% endif %}">Services</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:services_banner" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'services_banner' %}text-white lg:text-primary{% endif %}">Banner</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:post_banner_content" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'post_banner_content' %}text-white lg:text-primary{% endif %}">Post Banner</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-item relative">
+            <button class="transition ease-in delay-100 group">
+                <li class="text-xl lg:text-base flex items-center gap-3 mx-1 py-3 px-8 rounded-sm transition ease-in delay-100 hover:bg-white group {% if current_view == 'news-overview' %}active-nav{% endif %}">
+                    <i class="fa-regular fa-newspaper text-white group-hover:text-secondary transition ease-in delay-100"></i>
+                    <p class="text-white text-sm font-semibold group-hover:text-secondary transition ease-in delay-100 hidden lg:block">News</p>
+                    <i class="fa-solid fa-chevron-down text-white text-sm"></i>
+                </li>
+            </button>
+
+            <ul class=" overflow-hidden transition ease-in delay-300 rounded-t-md fixed bottom-[5.9%] bg-primary lg:static lg:bg-transparent my-2 h-0 sub-menu">
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:news_overview" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'news-overview' %}text-white lg:text-primary{% endif %}">News</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:news_banner" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'news_banner' %}text-white lg:text-primary{% endif %}">Banner</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:post_news_banner_content" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'post_news_banner_content' %}text-white lg:text-primary{% endif %}">Post Banner</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-item relative">
+            <button class="transition ease-in delay-100 group">
+                <li class="text-xl lg:text-base flex items-center gap-3 mx-1 py-3 px-8 rounded-sm transition ease-in delay-100 hover:bg-white group {% if current_view == 'contact-overview' %}active-nav{% endif %}">
+                    <i class="fa-solid fa-phone text-white group-hover:text-secondary transition ease-in delay-100"></i>
+                    <p class="text-white text-sm font-semibold group-hover:text-secondary transition ease-in delay-100 hidden lg:block">Contact Us</p>
+                    <i class="fa-solid fa-chevron-down text-white text-sm"></i>
+                </li>
+            </button>
+
+            <ul class=" overflow-hidden transition ease-in delay-300 rounded-t-md fixed bottom-[5.9%] bg-primary lg:static lg:bg-transparent my-2 h-0 sub-menu">
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:contact_overview" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'contact-overview' %}text-white lg:text-primary{% endif %}">Contact Us</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:contact_banner" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'contact_banner' %}text-white lg:text-primary{% endif %}">Banner</a>
+                </li>
+                <li class="font-semibold text-secondary hover:text-white hover:font-semibold transition ease-in delay-100 mx-1 py-3 px-8 lg:text-white lg:hover:text-primary">
+                    <a href="{% url "builders_admin:contact_info" %}" class="text-xs font-semibold lg:text-sm {% if current_sub_view == 'contact_info' %}text-white lg:text-primary{% endif %}">Info</a>
+                </li>
+            </ul>
+        </div>
+    </ul>
+    <!-- Navbar Ends Here -->
+</header>

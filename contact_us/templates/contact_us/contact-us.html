@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html
+  data-wf-page="64ddb2f80e56ffe6218ca2f0"
+  data-wf-site="649a95c241c0447e7e6ce0d5"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ready to start your next project? Contact Classic Builders Inc. today to discuss your needs and schedule a free in-person estimate. You can fill out the form…"
+    />
+    <meta name="keywords" content="contact us" />
+    <title>Contact Classic Builders for All Your Construction Needs</title>
+    <link
+      href="{% static 'images/fav-2.png' %}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/webflow.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- Navbar Section Starts Here -->
+    {% include "navigator/navbar.html" %}
+    <!-- Navbar Section Ends Here -->
+
+    <!-- Hero Section Starts Here -->
+    <section>
+      <div class="relative flex justify-start items-center mt-1 mb-16">
+        <img
+          class="w-[100vw] h-[45vh] select-none brightness-90 contrast-50 object-cover"
+          src="{{ banner.image.url }}"
+          alt="{{ banner.alt_image }}"
+          draggable="false"
+        />
+        <div class="w-[100vw] absolute">
+          <h1
+            class="text-white text-3xl font-semibold px-11 sm:text-5xl container-one m-auto lg:px-0"
+          >
+            {{ banner.heading }}
+          </h1>
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section Ends Here -->
+
+    <!-- Contact Us Section Starts Here -->
+    <section class="my-20">
+      <div
+        class="container-one m-auto lg:flex lg:items-center lg:justify-between lg:flex-row-reverse"
+      >
+        <aside class="px-11">
+          <h2 class="text-2xl font-medium">Contact Information</h2>
+          <div class="mt-8">
+            <div class="flex flex-col gap-2 mb-8 font-normal">
+              <p class="text-sm">Phone Number</p>
+              <div class="flex items-center gap-3 text-sm font-medium">
+                <i class="fa-solid fa-phone"></i>
+                <a href="{{ contact_data.phone_number_link }}">{{ contact_data.phone_number }}</a>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 font-normal">
+              <p class="text-sm">Email Address</p>
+              <div class="flex items-center gap-3 text-sm font-medium">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="{{ contact_data.email_link }}"
+                  >{{ contact_data.email }}</a>
+              </div>
+            </div>
+            <div class="mt-8">
+              <!--<iframe class="w-full h-full lg:min-w-[500px] lg:min-h-[500px] rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65309105.37131275!2d-84.99557916576275!3d2.4566430724266546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3b9ad03ced585%3A0xcb8c408d01f89c28!2sZone%20Websites!5e0!3m2!1sen!2sin!4v1720526262860!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+              <img
+                src="{{ contact_data.contact_page_image.url }}"
+                alt="{{ contact_data.contact_page_image_alt }}"
+              />
+            </div>
+          </div>
+        </aside>
+        <main
+          class="sm:min-w-[300px] lg:min-w-[450px] lg:max-w-[500px] px-11 py-7 rounded-md"
+          style="border: 1px solid #80808030"
+        >
+          <form action="###" method="post">
+            <h1 class="mt-8 mb-5 text-[1.4rem] sm:mb-8 sm:text-3xl">
+              Contact Us Today!
+            </h1>
+            <div class="mb-2">
+              <label class="text-sm font-medium" for="first_name"
+                >First Name</label
+              >
+              <input
+                class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-blue-50 sm:py-3"
+                placeholder="Alexander"
+                type="text"
+                id="first_name"
+                name="first_name"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label class="text-sm font-medium" for="last_name"
+                >Last Name</label
+              >
+              <input
+                class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-blue-50 sm:py-3"
+                placeholder="Williams"
+                type="text"
+                id="last_name"
+                name="last_name"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label class="text-sm font-medium" for="email">Email</label>
+              <input
+                class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-blue-50 sm:py-3"
+                placeholder="williams.alexander@nowheremail.com"
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label class="text-sm font-medium" for="email">Phone</label>
+              <input
+                class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-blue-50 sm:py-3"
+                placeholder="+11234567890"
+                type="phone"
+                id="phone"
+                name="phone"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label class="text-sm font-medium" for="message-box"
+                >Message</label
+              >
+              <textarea
+                class="w-full min-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-blue-50 sm:py-3-50"
+                placeholder="Your query text here."
+                name="message-box"
+                id="message-box"
+              ></textarea>
+            </div>
+            <div class="mb-2">
+              <button
+                class="bg-[#f6b61b] text-black py-3 px-12 rounded-md"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </section>
+    <!-- Contact Us Section Ends Here -->
+
+    <!-- Footer Section Starts Here -->
+    {% include "footer/footer.html" %}
+    <!-- Footer Section Ends Here -->
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/webflow.js' %}"></script>
+    <script src="{% static 'js/swiper.js' %}"></script>
+    <script src="{% static 'js/swiper-settings.js' %}"></script>
+  </body>
+</html>

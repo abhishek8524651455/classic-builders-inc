@@ -1,0 +1,302 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Classic Builders INC</title>
+    <link rel="stylesheet" href="{% static "/css/admin-styling/tw.css" %}">
+    <link rel="stylesheet" href="{% static "css/admin-styling/style.css" %}">
+    <link rel="shortcut icon" href="https://showcaseonline.store/classic-builders-inc/logo-2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-[#272f40]">
+    <main class="flex flex-col-reverse lg:flex-row max-w-maincontent m-auto bg-white">
+        {% include "builders_admin/navbar.html" %}
+        <aside class="p-6">
+            <section>
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">Banner Slider</h1>
+                </div>
+    
+                <div class="mt-10 flex gap-2 flex-wrap justify-start items-center">
+                    <!-- Max row size set to 3 items per view | If total items are 3 then add 'xxl:max-w-[32.9%]' in eash item container -->
+                    
+                    <!-- Item Starts Here -->
+                    {% for banner in banners %}
+                    {% if banner %}
+                    <div class="border border-gray-300 rounded-sm px-2 py-3 max-w-[509px] midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] ">
+                        <div class="banner-image relative">
+                            <img class="select-none cursor-not-allowed hover:contrast-[1.15] transition ease-in delay-100" src="{{ banner.image.url }}" alt="{{ banner.alt_image }}" draggable="false">
+                        </div>
+                        <div class="flex flex-col gap-2 items-center  justify-around my-2">
+                            <input type="text" class="cursor-not-allowed w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-gray-300 sm:py-3" placeholder="Heading" disabled="true" value="{{ banner.heading }}">
+                            <input type="text" class="cursor-not-allowed w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-gray-300 sm:py-3" placeholder="Sub Heading" disabled="true" value="{{ banner.sub_heading }}">
+                            <textarea class="cursor-not-allowed w-full min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-gray-300 sm:py-3-50" placeholder="Slide Description" name="message-box" disabled="true">{{ banner.description }}</textarea>
+                        </div>
+                        <div>
+                            <input class="cursor-not-allowed bg-gray-300 px-2 py-2 text-center rounded-md w-full text-base outline-none placeholder:text-black placeholder:text-center text-black transition ease-in delay-100 focus:bg-blue-50" type="text" name="" id="" tabindex="0" disabled="true" value="{{ banner.button_text }}">
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <!-- Item Ends Here -->
+
+                </div>
+            </section>
+    
+            <section class="mt-14">
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">About Us</h1>
+                </div>
+    
+                <div class="flex flex-col gap-2 items-center  justify-around my-2">
+                    <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Heading" value="{{ about_us.heading }}" disabled="true">
+                    <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Sub Heading" value="{{ about_us.sub_heading }}" disabled="true">
+                    <textarea class="w-full min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3-50" placeholder="About Us Description" disabled="true">{{ about_us.description }}</textarea>
+                </div>
+    
+                <div class="mt-10 flex gap-2 flex-wrap justify-start items-center">
+                    <!-- Max row size set to 3 items per view | If total items are 3 then add 'xxl:max-w-[32.9%]' in eash item container -->
+                    
+
+                    <!-- Item Starts Here -->
+                     {% for about_service in about_services %}
+                     {% if about_service %}
+                     <div class="border border-gray-300 rounded-sm px-2 py-3 max-w-[509px] midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] xxxl:max-w-[32.7%]">
+                         <div class="relative">
+                             <img class="cursor-not-allowed select-none hover:contrast-[1.15] transition ease-in delay-100" src="{{ about_service.service_image.url }}" alt="{{ about_service.alt_service_image }}">
+                         </div>
+                         <div class="flex flex-row gap-2 items-center justify-around my-2">
+                             <input type="text" class="cursor-not-allowed w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md bg-gray-300 sm:py-3" placeholder="Heading" value="{{ about_service.service_name }}" disabled="true">
+                             <img class="select-none cursor-not-allowed hover:contrast-[1.15] transition ease-in delay-100" src="{{ about_service.service_icon.url }}" alt="{{ about_service.alt_service_icon }}" draggable="false">
+                         </div>
+                     </div>
+                     {% endif %}
+                     {% endfor %}
+                    <!-- Item Ends Here -->
+                </div>
+            </section>
+
+            <section class="mt-14 border border-gray-300 p-2 rounded-md">
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">Why Us</h1>
+                </div>
+    
+                <div class="flex flex-col-reverse justify-between items-center lg:flex-row lg:gap-8 xxl:justify-evenly">
+                    <div class="w-full">
+                        <div class="flex flex-col gap-2 items-center justify-around my-2 min-w-16">
+                            <input type="text" class="cursor-not-allowed bg-gray-300  w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md  sm:py-3" placeholder="Heading" value="{{ why_us.heading }}" disabled="true">
+                            <input type="text" class="cursor-not-allowed bg-gray-300 w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3" placeholder="Sub Heading" value="{{ why_us.sub_heading }}" disabled="true">
+                            <textarea class="cursor-not-allowed bg-gray-300 w-full min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3-50" placeholder="Why Us Description" name="message-box" disabled="true">{{ why_us.description }}</textarea>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <div class="flex flex-col gap-2 items-start justify-around">
+                                <h1 class="text-[1.2rem] sm:font-normal sm:text-2xl text-nowrap">Core Aspirations</h1>
+                            </div>
+            
+                            <div class="mt-10 flex gap-2 flex-wrap justify-start items-center">
+                                <!-- Max row size set to 3 items per view | If total items are 3 then add 'xxl:max-w-[32.9%]' in eash item container -->
+                                
+                                <!-- Item Starts Here -->
+                                <div class="border border-gray-300 rounded-sm px-2 py-1 w-full midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] xxl:w-[100%]">
+                                    <div class="flex flex-col gap-2 items-center  justify-around my-2">
+                                        <input type="text" class="cursor-not-allowed bg-gray-300 w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3" placeholder="Heading" value="{{ why_us.mission_heading }}" disabled="true">
+                                        <textarea class="cursor-not-allowed bg-gray-300 w-full min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3-50" placeholder="Description" disabled="true">{{ why_us.mission_text }}</textarea>
+                                    </div>
+                                </div>
+                                <!-- Item Ends Here -->
+                                <!-- Item Starts Here -->
+                                <div class="border border-gray-300 rounded-sm px-2 py-1 w-full midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] xxl:w-[100%]">
+                                    <div class="flex flex-col gap-2 items-center  justify-around my-2">
+                                        <input type="text" class="cursor-not-allowed bg-gray-300 w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3" placeholder="Heading" value="{{ why_us.vision_heading }}" disabled="true">
+                                        <textarea class="cursor-not-allowed bg-gray-300 w-full min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3-50" placeholder="Description" disabled="true">{{ why_us.vision_text }}</textarea>
+                                    </div>
+                                </div>
+                                <!-- Item Ends Here -->
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="mt-8 lg:mt-0 relative">
+                        <div>
+                            <img class="cursor-not-allowed w-[100vw] lg:w-full rounded-sm select-none hover:contrast-[1.15] transition ease-in delay-100" src="{{ why_us.image.url }}" alt="{{ why_us.alt_image }}" draggable="false">
+                            <input type="file" accept="image/*" class="hidden">
+                        </div>
+                        <div class="absolute bottom-8 left-4 w-4/5">
+                            <textarea class="cursor-not-allowed bg-gray-300 w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3" disabled="true">{{ why_us.image_text }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-14">
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">Main Services</h1>
+                </div>
+    
+                <div class="flex flex-col lg:flex-row gap-2 items-center justify-around my-2">
+                    <div class="w-full">
+                        <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Heading" value="{{ main_services.heading }}" title="Heading" name="heading" disabled="true">
+                        <input type="text" class="mt-2 w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Sub Heading" value="{{ main_services.sub_heading }}" title="Sub Heading" name="sub-heading" disabled="true">
+                    </div>
+                    <textarea class="w-full min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3-50" placeholder="Description" title="Description" name="description" disabled="true">{{ main_services.description }}</textarea>
+                </div>
+    
+                <div class="mt-10 flex gap-2 flex-wrap justify-start items-center">
+                    <!-- Max row size set to 3 items per view | If total items are 3 then add 'xxl:max-w-[32.9%]' in eash item container -->
+                    
+                    <!-- Item Starts Here -->
+                    <div class="border border-gray-300 rounded-sm px-2 py-3 max-w-[509px] w-full midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] xxxl:max-w-[32.7%]">
+                        <div class="relative">
+                            <img class="cursor-not-allowed w-full select-none hover:contrast-[1.15] transition ease-in delay-100" src="{{ main_services.service_1_image.url }}" alt="{{ main_services.alt_service_1_image }}" draggable="false">
+                            <input type="file" accept="image/*" class="hidden" name="service_1_image">
+                        </div>
+                        <div class="flex flex-row gap-2 items-center justify-around my-2">
+                            <input type="text" class="cursor-not-allowed bg-gray-300 text-center w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3" placeholder="Service Title" name="service_1_title" value="{{ main_services.service_1_title }}" disabled="true">
+                        </div>
+                    </div>
+                    <!-- Item Ends Here -->
+                    <!-- Item Starts Here -->
+                    <div class="border border-gray-300 rounded-sm px-2 py-3 max-w-[509px] w-full midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] xxxl:max-w-[32.7%]">
+                        <div class="relative">
+                            <img class="w-full select-none cursor-not-allowed hover:contrast-[1.15] transition ease-in delay-100" src="{{ main_services.service_2_image.url }}" alt="{{ main_services.alt_service_2_image }}" draggable="false">
+                            <input type="file" accept="image/*" class="hidden" name="service_1_image">
+                        </div>
+                        <div class="flex flex-row gap-2 items-center justify-around my-2">
+                            <input type="text" class="text-center w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Service Title" name="service_2_title" value="{{ main_services.service_2_title }}" disabled="true">
+                        </div>
+                    </div>
+                    <!-- Item Ends Here -->
+                    <!-- Item Starts Here -->
+                    <div class="border border-gray-300 rounded-sm px-2 py-3 max-w-[509px] w-full midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] xxxl:max-w-[32.7%]">
+                        <div class="relative">
+                            <img class="w-full select-none cursor-not-allowed hover:contrast-[1.15] transition ease-in delay-100" src="{{ main_services.service_3_image.url }}" alt="{{ main_services.alt_service_3_image }}" draggable="false">
+                            <input type="file" accept="image/*" class="hidden" name="service_1_image">
+                        </div>
+                        <div class="flex flex-row gap-2 items-center justify-around my-2">
+                            <input type="text" class="text-center w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Service Title" name="service_3_title" value="{{ main_services.service_3_title }}" disabled="true">
+                        </div>
+                    </div>
+                    <!-- Item Ends Here -->
+                </div>
+
+                <div class="2xl:mr-4">
+                    <input type="text" class="mt-2 cursor-not-allowed bg-gray-300 px-2 py-2 text-center rounded-md w-full text-base outline-none placeholder:text-black placeholder:text-center text-black transition ease-in delay-100 focus:bg-blue-50" placeholder="View All Services" name="button_text" value="{{ main_services.button_text }}" disabled="true">
+                </div>
+            </section>
+    
+            <section class="mt-14 border border-gray-300 p-2 rounded-md">
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">Specialized In</h1>
+                </div>
+    
+                <div class="flex flex-col lg:flex-row gap-2 items-center justify-around my-2 min-w-16">
+                    <div class="flex flex-col gap-2 items-center w-full lg:w-2/4">
+                        <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Heading" placeholder="Heading" value="{{ specialized_in.heading }}" disabled="true">
+                        <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Sub Heading" value="{{ specialized_in.sub_heading }}" disabled="true">
+                    </div>
+                    <textarea class="w-full lg:w-2/4 min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3-50" placeholder="Description" disabled="true">{{ specialized_in.description }}</textarea>
+                </div>
+    
+                <div class="lg:relative flex flex-col gap-3 lg:flex-row lg:mt-32">
+    
+                    <div class="">
+                        <img class="select-none cursor-not-allowed hover:contrast-[1.15] transition ease-in delay-100" src="{{ specialized_in.image.url }}" alt="{{ specialized_in.alt_image }}" draggable="false">
+                        <input type="file" accept="image/*" class="hidden">
+                    </div>
+    
+                    <div class="lg:absolute z-20 lg:bg-white lg:px-3 lg:py-2 lg:rounded-md lg:translate-x-11 lg:w-1/2 lg:right-14 lg:-top-16 lg:shadow-top-left-bottom">
+                        <div class="flex flex-col gap-2 items-center justify-around my-2 min-w-16">
+                            <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Heading" value="{{ specialized_in.heading_2 }}" disabled="true">
+                            <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Sub Heading" value="{{ specialized_in.sub_heading_2 }}" disabled="true">
+                            <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Subsection Heading" value="{{ specialized_in.subsection_heading }}" disabled="true">
+                        </div>
+    
+                        <div class="">
+                            <h1 class="my-8 text-[1.2rem] sm:font-normal sm:text-2xl text-nowrap">Services</h1>
+                            <div class="flex flex-row gap-2 items-center my-2 flex-wrap">
+                                {% for specialized_in_service in specialized_in_services %}
+                                  {% if specialized_in_service %}
+                                  <div class="w-full relative flex items-center justify-end">
+                                      <input type="text" class="w-full text-sm font-normal px-2 py-2 pr-11 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Service" value="{{ specialized_in_service.service_title }}" disabled="true">
+                                      
+                                  </div>
+                                  {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="mt-14">
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">Recent Projects</h1>
+                </div>
+
+                <div class="mt-7 flex flex-col ssm:flex-row gap-2 justify-center items-center">
+                    <input type="text" class="cursor-not-allowed bg-gray-300 text-center w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3" placeholder="{{ project_section_title.title }}" value="{{ project_section_title.title }}" name="project_section_title" disabled="true">
+                </div>
+
+                <div class="mt-10 flex gap-2 flex-wrap justify-start items-center">
+                    <!-- Max row size set to 3 items per view | If total items are 3 then add 'xxl:max-w-[32.9%]' in eash item container -->
+                     {% for project in projects %}
+                     {% if project %}
+                     <div class="item border border-gray-300 rounded-sm px-2 py-3 max-w-[509px] midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] xxl:max-w-[32.5%]">
+                        <!-- Item Starts Here -->
+                        <input type="text" class="hidden" value="{{ project.id }}" name="object-id">
+                        <div class="relative image-container">
+                            <img class="display-image select-none max-h-[489px] cursor-not-allowed hover:contrast-[1.15] transition ease-in delay-100" src="{{ project.image.url }}" alt="{{ project.alt_image }}" draggable="false">
+                        </div>
+                        <div class="flex flex-col gap-2 items-center  justify-around my-2">
+                            <input type="text" class="cursor-not-allowed bg-gray-300 text-center w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md sm:py-3" placeholder="{{ project.name }}" value="{{ project.name }}" name="project-name" disabled="true">
+                        </div>
+                        <!-- Item Ends Here -->
+                     </div>
+                     {% endif %}
+                     {% endfor %}
+                </div>
+            </section>
+    
+            <section class="mt-14">
+                <div class="sm:mb-8 flex items-center justify-between">
+                    <h1 class="font-semibold text-[1.4rem] sm:font-normal sm:text-3xl text-nowrap">Testimonials Section</h1>
+                </div>
+    
+                <div class="flex flex-col lg:flex-row gap-2 items-center justify-around my-2 min-w-16">
+                    <div class="flex flex-col gap-2 items-center w-full lg:w-2/4">
+                        <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Heading" placeholder="Heading" disabled="true" value="{{ testimonial_section.heading }}">
+                        <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Sub Heading" disabled="true" value="{{ testimonial_section.sub_heading }}">
+                    </div>
+                    <textarea class=" w-full lg:w-2/4 min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3-50" placeholder="Description" disabled="true">{{ testimonial_section.description }}</textarea>
+                </div>
+    
+                <div class="mt-10 flex gap-2 flex-wrap justify-start items-center">
+                    <!-- Max row size set to 3 items per view | If total items are 3 then add 'xxl:max-w-[32.9%]' in eash item container -->
+                    
+                    {% for testimonial in testimonials %}
+                    {% if testimonial %}
+                    <!-- Item Starts Here -->
+                    <div class="border border-gray-300 rounded-sm px-2 py-3 max-w-[509px] midsm:flex midsm:flex-col midsm:flex-shrink mid:smflex-grow midsm:max-w-[49%] xxl:max-w-[32.5%]">
+                        <div class="banner-image relative">
+                            <img class="select-none max-h-[489px] cursor-pointer hover:contrast-[1.15] transition ease-in delay-100" src="{{ testimonial.image.url }}" alt="{{ testimonial.alt_image }}" draggable="false">
+                        </div>
+                        <div class="flex flex-col gap-2 items-center  justify-around my-2">
+                            <input type="text" class="w-full text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3" placeholder="Author Name" value="{{ testimonial.author }}" disabled="true">
+                            <textarea class="w-full min-h-24 max-h-24 text-sm font-normal px-2 py-2 border-none outline-none rounded-md cursor-not-allowed bg-gray-300 sm:py-3-50" placeholder="Author Review" name="message-box" disabled="true">{{ testimonial.review }}</textarea>
+                        </div>
+                    </div>
+                    <!-- Item Ends Here -->
+                    {% endif %}
+                    {% endfor %}
+                    
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <script src="{% static "js/admin-scripts/nav-sub-menu.js" %}"></script>
+</body>
+</html>

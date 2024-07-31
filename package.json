@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.6"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^42.0.2",
+    "@tailwindcss/typography": "^0.5.13",
+    "ckeditor5": "^42.0.2"
+  }
+}

@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html
+  data-wf-page="64ddb2f80e56ffe6218ca2f0"
+  data-wf-site="649a95c241c0447e7e6ce0d5"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="At Classic Builders Inc., we pick the best tool for the job. We offer building and remodeling services for residential and light commercial, design-and-build..."
+    />
+    <meta name="keywords" content="Our Services" />
+    <title>Trusted General Contracting Services | Classic Builders Inc</title>
+    <link
+      href="{% static 'images/fav-2.png' %}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/webflow.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" />
+  </head>
+  <body>
+    <!-- Navbar Section Starts Here -->
+    {% include "navigator/navbar.html" %}
+    <!-- Navbar Section Ends Here -->
+
+    <!-- Hero Section Starts Here -->
+    <section>
+      <div class="relative flex justify-start items-center mt-1 mb-16">
+        <img
+          class="w-[100vw] h-[45vh] select-none brightness-90 contrast-50 object-cover"
+          src="{{ banner.image.url }}"
+          alt="{{ banner.alt_image }}"
+          draggable="false"
+        />
+        <div class="w-[100vw] absolute">
+          <h1
+            class="text-white text-3xl font-semibold px-11 sm:text-5xl container-one m-auto lg:px-0"
+          >
+            {{ banner.heading }}
+          </h1>
+        </div>
+      </div>
+
+      <section class="px-11 lg:p-0">
+        <div class="container-one hero-section-description-container px-3 sm:px-0">
+          <h2 class="lg:leading-[3.125rem] font-bold lg:font-semibold text-2xl xsm:text-3xl lg:text-4xl text-black">{{ post_banner_content.heading }}</h2>
+          <p class="leading-7 font-normal text-base text-gray-700 tracking-normal mt-6">{{ post_banner_content.description }}</p>
+        </div>
+        <!-- Servives Wrapper Starts Here -->
+        <div class="container-one servives-wrapper">
+          {% for service in services %}
+          {% if service %}
+          <!-- Servives Card Starts Here -->
+          <div class="service-card">
+            <div>
+              <img class="service-card-image" src="{{ service.thumbnail.url }}" alt="{{ service.alt_thumbnail }}" draggable="false">
+            </div>
+            <div class="service-card-content-wrapper">
+              <h3 class="leading-7 font-semibold text-lg text-black tracking-normal">{{ service.short_heading }}</h3>
+              <p class="service-card-text leading-normal tracking-normal font-normal text-sm text-black">{{ service.short_description }}</p>
+            </div>
+            <a role="button" href="{% url "services:service_details" service.service_id %}" class="w-full mt-4 body-button bg-goldenrod text-color-black w-inline-block flex justify-between">
+              <div class="leading-normal tracking-normal font-normal text-sm text-black">{{ service.info_button_text }}</div>
+              <img src="{% static "images/649a9828a92bde00c8238b3d_White%20Arrow.svg" %}" alt="White Medium Arrow" height="12" width="20" class="black-icons">
+            </a>
+          </div>
+          <!-- Servives Card Ends Here -->
+          {% endif %}
+          {% endfor %}
+      </section>
+    </section>
+    <!-- Hero Section Ends Here -->
+
+    <!-- Footer Section Starts Here -->
+    {% include "footer/footer.html" %}
+    <!-- Footer Section Ends Here -->
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/webflow.js' %}"></script>
+    <script src="{% static 'js/swiper.js' %}"></script>
+    <script src="{% static 'js/swiper-settings.js' %}"></script>
+  </body>
+</html>

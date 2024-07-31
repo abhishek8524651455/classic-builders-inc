@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html
+  data-wf-page="64ddb2f80e56ffe6218ca2f0"
+  data-wf-site="649a95c241c0447e7e6ce0d5"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content=" Classic Builders Inc. is a full-service general contractor specializing in building and remodeling services, such as design-build, residential, and concrete work."
+    />
+    <meta name="keywords" content="About Classic Builders Inc." />
+    <title>Transforming Spaces and Simplifying Lives | About Us</title>
+    <link
+      href="{% static 'images/fav-2.png' %}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/webflow.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" />
+  </head>
+  <body>
+    <!-- Navbar Section Starts Here -->
+    {% include "navigator/navbar.html" %}
+    <!-- Navbar Section Ends Here -->
+
+    <!-- Hero Section Starts Here -->
+    <section>
+      <div class="relative flex justify-start items-center mt-1 mb-16">
+        <img
+          class="w-[100vw] h-[45vh] select-none brightness-90 contrast-50 object-cover"
+          src="{{ banner.image.url }}"
+          alt="{{ banner.alt_image}}"
+          draggable="false"
+        />
+        <div class="w-[100vw] absolute">
+          <h1
+            class="text-white text-3xl font-semibold px-11 sm:text-5xl container-one m-auto lg:px-0"
+          >
+            {{ banner.heading }}
+          </h1>
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section Ends Here -->
+
+    <!-- About Us Section Starts Here -->
+    <section
+      class="container-one m-auto flex gap-10 items-center justify-between flex-col lg:flex-row mb-32"
+    >
+      <div
+        class="flex flex-col lg:flex-row justify-center items-center gap-3 shadow-box sm:px-14 py-24 border-radius-box"
+      >
+        <aside>
+          <img
+            class="select-none w-full"
+            src="{{ company_profile.image.url }}"
+            alt="{{ company_profile.alt_image}}"
+            draggable="false"
+          />
+        </aside>
+        <div class="lg:max-w-[730px]">
+          <div class="flex flex-col gap-2 px-8 sm:px-0 lg:pl-8">
+            <h3
+              class="leading-7 font-semibold text-lg text-black tracking-[.15rem]"
+            >
+              {{ company_profile.heading }}
+            </h3>
+            <h1
+              class="lg:leading-[3.125rem] font-bold lg:font-semibold text-2xl xsm:text-3xl lg:text-4xl text-black"
+            >
+            {{ company_profile.sub_heading }}
+            </h1>
+          </div>
+          <div class="flex justify-center items-center px-8 sm:px-0 gap-8 mt-8">
+            <span
+              class="hidden lg:block w-4 min-h-36 bg-[#f6b61b] rounded-full"
+            ></span>
+            <div class="flex flex-col gap-4">
+              {{ company_profile.description|safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Us Section Ends Here -->
+
+    <!-- Our Mission & Vision Section Starts Here -->
+    <section
+      class="container-one m-auto flex flex-col lg:flex-row items-center gap-9 mb-16 ease-in duration-300"
+    >
+      <div
+        class="mx-8 px-6 shadow-box-- border-radius-box-- py-9 ease-in duration-300"
+      >
+        <h1
+          class="sm:pl-5 mb-4 ease-in duration-300 lg:leading-[3.125rem] font-bold lg:font-semibold text-2xl xsm:text-3xl lg:text-4xl text-black"
+        >
+          {{ why_us.mission_heading }}
+        </h1>
+        <div class="flex justify-center items-center px-0 gap-8 mt-8 lg:ml-5">
+          <span
+            class="hidden sm:block w-4 min-h-16 bg-[#f6b61b] rounded-full"
+          ></span>
+          <p
+            class="leading-normal tracking-wide font-normal text-base text-black ease-in duration-300"
+          >
+          {{ why_us.mission_text }}
+          </p>
+        </div>
+      </div>
+      <div
+        class="mx-8 px-6 shadow-box-- border-radius-box-- py-9 ease-in duration-300"
+      >
+        <h1
+          class="sm:pl-5 mb-4 ease-in duration-300 lg:leading-[3.125rem] font-bold lg:font-semibold text-2xl xsm:text-3xl lg:text-4xl text-black"
+        >
+        {{ why_us.vision_heading }}
+        </h1>
+        <div class="flex justify-center items-center px-0 gap-8 mt-8 lg:ml-5">
+          <span
+            class="hidden sm:block w-4 min-h-16 bg-[#f6b61b] rounded-full"
+          ></span>
+          <p
+            class="leading-normal tracking-wide font-normal text-base text-black ease-in duration-300"
+          >
+          {{ why_us.vision_text }}
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Our Mission & Vision Section Ends Here -->
+
+    <!-- Testimonials Section Starts Here -->
+    <section class="container-one m-auto my-28">
+      <div class="text-center mb-10">
+        <h3
+          class="pl-5 mb-4 ease-in duration-300 leading-7 font-semibold text-lg text-black tracking-[.15rem]"
+        >
+          {{ testimonial_section.heading }}
+        </h3>
+        <p
+          class="pl-5 mb-4 ease-in duration-300 lg:leading-[3.125rem] font-bold lg:font-semibold text-2xl xsm:text-3xl lg:text-4xl text-black"
+        >
+        {{ testimonial_section.sub_heading }}
+        </p>
+      </div>
+      <div class="swiper mySwiper py-14">
+        <div class="swiper-wrapper">
+          {% for testimonial in testimonials %}
+          {% if testimonial %}
+          <div class="swiper-slide">
+            <!-- Testimonial Item Starts Here -->
+            <div class="mx-8 px-6 shadow-box-- border-radius-box-- py-9 ease-in duration-300">
+              <div class="pl-5 pb-4 flex justify-start items-center gap-1">
+                <i class="fa-solid fa-star text-[#1c2436]"></i>
+                <i class="fa-solid fa-star text-[#1c2436]"></i>
+                <i class="fa-solid fa-star text-[#1c2436]"></i>
+                <i class="fa-solid fa-star text-[#1c2436]"></i>
+                <i class="fa-solid fa-star text-[#1c2436]"></i>
+              </div>
+              <p
+                style="border-left-width: 1px; border-style: solid"
+                class="border-l-[#f6b61b] pl-5 leading-normal tracking-wide font-normal text-base text-black ease-in duration-300"
+              >
+                {{ testimonial.review}}
+              </p>
+              <h5
+                class="pl-5 mt-3 mb-1 leading-normal font-normal text-lg text-[#f6b61b] ease-in duration-300"
+              >
+              {{ testimonial.author}}
+              </h5>
+            </div>
+            <!-- Testimonial Item Ends Here -->
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section Ends Here -->
+
+    <!-- Footer Section Starts Here -->
+    {% include "footer/footer.html" %}
+    <!-- Footer Section Ends Here -->
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/webflow.js' %}"></script>
+    <script src="{% static 'js/swiper.js' %}"></script>
+    <script src="{% static 'js/swiper-settings.js' %}"></script>
+  </body>
+</html>

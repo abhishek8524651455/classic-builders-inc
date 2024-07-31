@@ -1,0 +1,471 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-wf-page="64ddb2f80e56ffe6218ca2f0" data-wf-site="649a95c241c0447e7e6ce0d5" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Classic Builders Inc. is a full-service general contractor specializing in building and remodeling services such as design-build, residential, concrete, plumbing,..."
+    />
+    <meta name="keywords" content="Classic Builders Inc." />
+    <link href="{% static 'images/fav-2.png' %}" rel="shortcut icon" type="image/x-icon" />
+    <title>Best General Contracting Company | Classic Builders Inc</title>
+    <link rel="stylesheet" href="{% static 'css/webflow.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}" />
+  </head>
+  <body>
+    <!-- Navbar Section Starts Here -->
+    {% include "navigator/navbar.html" %}
+    <!-- Navbar Section Ends Here -->
+
+    <!-- Banner Slider Starts Here -->
+    <section class="overflow-hidden">
+      <div
+        data-delay="2000"
+        data-animation="slide"
+        class="home-one-hero-slider w-slider"
+        data-autoplay="true"
+        data-easing="ease"
+        data-hide-arrows="false"
+        data-disable-swipe="false"
+        data-autoplay-limit="0"
+        data-nav-spacing="3"
+        data-duration="500"
+        data-infinite="true"
+      >
+        <div class="home-one-hero-slider-mask w-slider-mask">
+
+          {% for banner in banners %}
+          {% if banner %}
+          <div class="w-slide">
+            <div class="home-one-hero-slider-block home-one-slider-one" style="background-image: url('{{ banner.image.url }}')">
+              <div class="w-layout-blockcontainer home-one-hero-container w-container">
+                <div class="home-one-hero-main">
+                  <div class="tag-two-block padding-bottom-three">
+                    <div class="tag-three">{{ banner.heading }}</div>
+                  </div>
+                  <h1 class="text-color-white padding-bottom-three">{{ banner.sub_heading }}</h1>
+                  <p class="home-one-hero-description text-color-white padding-bottom-twenty-five">
+                    {{ banner.description }}
+                  </p>
+                  <div class="home-one-hero-btn-flex">
+                    <a href="{% url "about_us:about-us" %}" role="button" class="body-button bg-goldenrod text-color-black w-inline-block">
+                      <div>{{ banner.button_text }}</div>
+                      <img width="20" height="12" src="{% static 'images/649a9828a92bde00c8238b3d_White%20Arrow.svg' %}" alt="White Medium Arrow" class="black-icons" />
+                    </a>
+                    <a href="tel:(818) 521-4278" class="home-one-hero-call-block underline-off w-inline-block">
+                      <img width="45" height="45" src="{% static 'images/64c21b86baf5db5f0f9ea5cb_Call%20Icons.svg' %}" alt="Call Icons" />
+                      <div>
+                        <p class="margin-zero text-color-white">Call Us Now</p>
+                        <div class="contact-no">(818) 521-4278</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="home-one-hero-slider-gradient"></div>
+                <div class="home-one-hero-slider-shape"></div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="left-arrow w-slider-arrow-left">
+          <div class="w-icon-slider-left"></div>
+        </div>
+        <div class="right-arrow w-slider-arrow-right">
+          <div class="w-icon-slider-right"></div>
+        </div>
+        <div class="slide-nav w-slider-nav w-round w-num"></div>
+      </div>
+    </section>
+    <!-- Banner Slider Ends Here -->
+
+    <!-- What We Do Starts Here -->
+    <section class="home-two-what-we-do">
+      <div class="w-layout-blockcontainer home-two-what-we-do-container w-container">
+        <div class="tag-style-three text-center">{{ about_us.heading }}</div>
+        <div class="overflow-hidden">
+          <h2
+            data-w-id="73fd2570-7bfd-46e6-4c00-7c419a125ea7"
+            style="
+              -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+              -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+              -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+              transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            "
+            class="margin-top-thirteen padding-bottom-ten text-center"
+          >
+            {{ about_us.sub_heading }}
+          </h2>
+        </div>
+        <p class="width-seven-hundred text-center">
+          {{ about_us.description }}
+        </p>
+        <div class="w-layout-grid home-one-what-we-do-grid">
+          {% for about_service in about_services %}
+          {% if  about_service %}
+          <div id="w-node-_73fd2570-7bfd-46e6-4c00-7c419a125eac-218ca2f0" data-w-id="73fd2570-7bfd-46e6-4c00-7c419a125eac" style="background-color: rgb(248, 248, 248)" class="home-one-what-we-do-card">
+            <div class="home-one-what-we-do-card-flex">
+              <img src="{{ about_service.service_icon }}" alt="{{ about_service.alt_service_icon }}" width="54" height="54" />
+            </div>
+            <div class="home-one-what-we-do-card-title padding-bottom-twenty-five">{{ about_service.service_name }}</div>
+            <img src="{{ about_service.service_image }}" alt="{{ about_service.alt_service_image }}" width="247" height="196" class="responsive-full-width cover-image" />
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- What We Do Ends Here -->
+
+    <!-- WHY CHOOSE US Starts Here -->
+    <section class="home-two-choose-section" style="background-image: url({% static "/images/64ad29dc9c52d9803cb2e2d9_Why Choose US.webp" %});">
+      <div class="w-layout-blockcontainer home-two-choose-section-container w-container">
+        <div class="home-two-choose-section-flex">
+          <div class="home-one-choose-content-block">
+            <div class="tag-style-three padding-bottom-six">{{ why_us.heading }}</div>
+            <h2 class="margin-top-seventeen padding-bottom-fifteen">{{ why_us.sub_heading }}</h2>
+            <p class="padding-bottom-twenty-five">{{ why_us.description }}</p>
+            <div class="card-line"></div>
+            <div class="w-layout-grid home-one-choose-grid">
+              <div class="home-two-experience-content-flex">
+                <img src="{% static "/images/64dc692323e0c399092a5518_Grey Tick.svg" %}" alt="Tick Icon" height="26" width="26">
+                <div class="home-two-experience-content-title-block">
+                  <div class="heading-six padding-bottom-ten">{{ why_us.mission_heading }}</div>
+                  <p>{{ why_us.mission_text }}</p>
+                </div>
+              </div>
+              <div class="home-two-experience-content-flex">
+                <img src="{% static "/images/64dc692323e0c399092a5518_Grey Tick.svg" %}" alt="Tick Icon" width="26" height="26">
+                <div class="home-two-experience-content-title-block">
+                  <div class="heading-six padding-bottom-ten">{{ why_us.vision_heading }}</div>
+                  <p>{{ why_us.vision_text }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-w-id="4451d4ec-93cf-e766-5bac-b20e6a932690" class="home-one-choose-image-block">
+            <div class="home-one-about-yellow-bg home-one-why-choose-yellow-bg" style=""></div>
+            <div data-w-id="4451d4ec-93cf-e766-5bac-b20e6a932693" class="creative-image-block">
+              <img src="{{ why_us.image.url }}" class="responsive-full-width cover-image image-shadow" alt="{{ why_us.alt_image }}">
+              <div style="display: block; transform: translate3d(0px, 0px, 0px) scale3d(1, 0, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="overlay-img"></div>
+              <div class="home-one-choose-image-text-block">
+                <div class="home-four-tabs-description">{{ why_us.image_text }}</div>
+              </div>
+            </div>
+            <div class="home-one-image-style">
+              <div class="home-one-about-company-bg about-company-black"></div>
+              <div class="home-one-about-company-bg about-company-white"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- WHY CHOOSE US Ends Here -->
+
+    <!-- Our Services Starts Here -->
+    <section class="home-four-service bg-dark-blue">
+      <div class="w-layout-blockcontainer home-four-service-container w-container">
+        <div class="home-four-service-flex">
+          <div class="home-four-service-title-block">
+            <div class="tag change-weight-medium text-color-white">{{ main_services.heading }}</div>
+            <div class="overflow-hidden">
+              <h2
+                data-w-id="68272706-4e4f-118c-1fca-b983535c5f5a"
+                style="
+                  -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                "
+                class="text-color-white"
+              >
+              {{ main_services.sub_heading }}
+              </h2>
+            </div>
+          </div>
+          <p class="home-four-service-paragraph-block text-color-white">
+            {{ main_services.description }}
+          </p>
+        </div>
+        <div class="home-one-flex">
+          <div class="service-two-card our-services-item">
+            <div data-w-id="4f8e5e50-bdb3-f581-f9b2-8f4b951430f5" class="service-two-card-image-block">
+              <img
+                src="{{ main_services.service_1_image.url }}"
+                sizes="(max-width: 479px) 94vw, (max-width: 767px) 96vw, (max-width: 991px) 97vw, (max-width: 1439px) 98vw, 1290px"
+                height="489"
+                width="410"
+                alt="{{ main_services.alt_service_1_image }}"
+                class="full-width cover-image"
+              />
+              <a style="opacity: 0; width: 0px; height: 0px" href="design-build.html" class="view-arrow-button w-inline-block">
+                <img src="{% static 'images/64ae35ac665ef07592d5453e_View%20Arrow%20Icons.svg' %}" alt="View Arrow Icons" width="18" height="17" />
+              </a>
+            </div>
+            <div class="heading-six text-center padding-top-twenty padding-bottom-twenty">{{ main_services.service_1_title }}</div>
+          </div>
+          <div class="service-two-card our-services-item">
+            <div data-w-id="4f8e5e50-bdb3-f581-f9b2-8f4b951430fc" class="service-two-card-image-block">
+              <img
+                src="{{ main_services.service_2_image.url }}"
+                sizes="(max-width: 479px) 94vw, (max-width: 767px) 96vw, (max-width: 991px) 97vw, (max-width: 1439px) 98vw, 1290px"
+                width="410"
+                height="489"
+                alt="{{ main_services.alt_service_2_image }}"
+                class="full-width cover-image"
+              />
+              <a style="opacity: 0; width: 0px; height: 0px" href="full-remodels.html" class="view-arrow-button w-inline-block">
+                <img src="{% static 'images/64ae35ac665ef07592d5453e_View%20Arrow%20Icons.svg' %}" alt="View Arrow Icons" width="18" height="17" />
+              </a>
+            </div>
+            <div class="heading-six text-center padding-top-twenty padding-bottom-twenty">{{ main_services.service_2_title }}</div>
+          </div>
+          <div class="service-two-card our-services-item">
+            <div data-w-id="4f8e5e50-bdb3-f581-f9b2-8f4b95143103" class="service-two-card-image-block">
+              <img
+                src="{{ main_services.service_3_image.url }}"
+                sizes="(max-width: 479px) 94vw, (max-width: 767px) 96vw, (max-width: 991px) 97vw, (max-width: 1439px) 98vw, 1290px"
+                width="410"
+                height="489"
+                alt="{{ main_services.alt_service_3_image }}"
+                class="full-width cover-image"
+              />
+              <a style="opacity: 0; width: 0px; height: 0px" href="concrete-work.html" class="view-arrow-button w-inline-block">
+                <img src="{% static 'images/64ae35ac665ef07592d5453e_View%20Arrow%20Icons.svg' %}" alt="View Arrow Icons" width="18" height="17" />
+              </a>
+            </div>
+            <div class="heading-six text-center padding-top-twenty padding-bottom-twenty">{{ main_services.service_3_title }}</div>
+          </div>
+        </div>
+        <a role="button" href="services.html" class="body-button body-button-custom bg-goldenrod text-color-black w-inline-block">
+          <div>{{ main_services.button_text }}</div>
+          <img src="{% static 'images/649a9828a92bde00c8238b3d_White%20Arrow.svg' %}" alt="White Medium Arrow" height="12" width="20" class="black-icons" />
+        </a>
+      </div>
+    </section>
+    <!-- Our Services Ends Here -->
+
+    <!-- Leaders In The Industry Starts Here -->
+    <section class="home-one-navigating">
+      <div class="w-layout-blockcontainer home-one-navigating-container w-container">
+        <div class="home-four-service-flex">
+          <div class="home-four-service-title-block">
+            <div class="tag change-weight-medium">{{ specialized_in.heading }}</div>
+            <div class="overflow-hidden">
+              <h2
+                data-w-id="698e663e-82f7-53c5-a071-db3c5e8192e9"
+                style="
+                  -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                "
+              >
+              {{ specialized_in.sub_heading }}
+              </h2>
+            </div>
+          </div>
+          <p class="home-four-service-paragraph-block">
+            {{ specialized_in.description }}
+          </p>
+        </div>
+      </div>
+      <div class="home-one-navigating-main" style="background-image: url('{{ specialized_in.image.url }}')">
+        <div class="home-one-navigating-main-container">
+          <div class="home-one-navigating-card image-shadow">
+            <div class="tag change-weight-semibold padding-bottom-ten">{{ specialized_in.heading_2 }}</div>
+            <div class="overflow-hidden">
+              <div
+                data-w-id="75864168-0fed-c9f9-f73d-44d081e62aec"
+                style="
+                  -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                "
+                class="heading-four"
+              >
+              {{ specialized_in.sub_heading_2 }}
+              </div>
+            </div>
+            <p class="padding-bottom-thirty">{{ specialized_in.subsection_heading }}</p>
+            <div class="w-layout-grid home-one-navigating-grid">
+              {% for specialized_in_service in specialized_in_services %}
+              {% if specialized_in_service %}
+              <div style="display: flex; flex-wrap: wrap;">
+                <div class="home-one-navigating-card-flex padding-bottom-fifteen">
+                  <img src="{% static 'images/64dc6a706eeab31cf40b3f01_Plus%20Bg.svg' %}" alt="Plus Icons" width="28" height="28" />
+                  <div class="heading-six">{{ specialized_in_service.service_title }}</div>
+                </div>
+              </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Leaders In The Industry Ends Here -->
+
+    <!-- Latest Projects Starts Here -->
+    <section class="home-one-project">
+      <div class="w-layout-blockcontainer home-one-project-container overflow-hidden w-container">
+        <div
+          data-w-id="1a7c9ad2-a0d8-f04d-1e1b-11ac7bf8817a"
+          style="
+            -webkit-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            -moz-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            -ms-transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            transform: translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+          "
+          class="large-heading padding-bottom-fourty text-color-white"
+        >
+          {{ project_section_title.title }}
+        </div>
+      </div>
+      <div role="list" class="home-one-project-grid-inner w-dyn-items">
+        {% for project in projects %}
+        {% if project %}
+        <div role="listitem" class="w-dyn-item">
+          <div data-w-id="77552460-5d47-a6e3-17af-08035976e1d9" class="home-one-project-card">
+            <img alt="{{ project.alt_image }}" width="531" height="733" src="{{ project.image }}" class="full-width cover-image" />
+            <div class="home-one-project-card-content underline-off w-inline-block">
+              <div class="heading-five padding-bottom-fifteen">{{ project.name }}</div>
+              <div class="home-one-project-card-content-project-btn">
+                <img
+                  src="{% static 'images/649d12c9041e855ca8d5226d_Work%20Together%20Line.svg' %}"
+                  style="
+                    -webkit-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  "
+                  width="47"
+                  height="2"
+                  alt="Medium Black Line"
+                  data-w-id="8548594f-c87e-d953-97d2-e7b916b5d155"
+                />
+                <!-- <div>View Project</div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% comment %} <div role="listitem" class="w-dyn-item">
+          <div data-w-id="77552460-5d47-a6e3-17af-08035976e1d9" class="home-one-project-card">
+            <img alt="" width="531" height="733" src="{% static 'images/2532-El-Capitan-Ave--Pierri-Galant.jpg' %}" class="full-width cover-image" />
+            <div class="home-one-project-card-content underline-off w-inline-block">
+              <div class="heading-five padding-bottom-fifteen">2532 El Capitan Ave- Pierri Galant</div>
+              <div class="home-one-project-card-content-project-btn">
+                <img
+                  src="{% static 'images/649d12c9041e855ca8d5226d_Work%20Together%20Line.svg' %}"
+                  style="
+                    -webkit-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  "
+                  width="47"
+                  height="2"
+                  alt="Medium Black Line"
+                  data-w-id="8548594f-c87e-d953-97d2-e7b916b5d155"
+                />
+                <!-- <div>View Project</div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="listitem" class="w-dyn-item">
+          <div data-w-id="77552460-5d47-a6e3-17af-08035976e1d9" class="home-one-project-card">
+            <img alt="" width="531" height="733" src="{% static 'images/4718-Rosemont-Ave.jpg' %}" class="full-width cover-image" />
+            <div class="home-one-project-card-content underline-off w-inline-block">
+              <div class="heading-five padding-bottom-fifteen">4718 Rosemont Ave</div>
+              <div class="home-one-project-card-content-project-btn">
+                <img
+                  src="{% static 'images/649d12c9041e855ca8d5226d_Work%20Together%20Line.svg' %}"
+                  style="
+                    -webkit-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                  "
+                  width="47"
+                  height="2"
+                  alt="Medium Black Line"
+                  data-w-id="8548594f-c87e-d953-97d2-e7b916b5d155"
+                />
+                <!-- <div>View Project</div> -->
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+    </section>
+    <!-- Latest Projects Ends Here -->
+
+    <!-- Testimonials Section Starts Here -->
+    <section class="testimonials-section">
+      <div class="w-layout-blockcontainer testimonials-container w-container">
+        <div class="tag change-weight-medium">{{ testimonial_section.heading }}</div>
+        <div class="testimonials-flex">
+          <div class="testimonials-inner-block overflow-hidden">
+            <h2
+              data-w-id="1bdf7c6d-d996-400e-80cb-ed31ec5ed5f2"
+              style="transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d"
+            >
+            {{ testimonial_section.sub_heading }}
+            </h2>
+          </div>
+          <p class="testimonials-inner-block">{{ testimonial_section.description }}</p>
+        </div>
+
+        <div class="swiper testimonials-swiper" style="margin-top: 1rem">
+          <div class="swiper-wrapper">
+            {% for testimonial in testimonials %}
+            {% if testimonial %}
+            <div class="swiper-slide" style="justify-content: center; display: flex">
+              <div class="testimonials-card">
+                <div class="testimonials-card-image-block">
+                  <div class="testimonials-card-inner-image-block">
+                    <img src="{{ testimonial.image }}" alt="{{ testimonial.alt_image }}" width="242" height="286" />
+                  </div>
+                </div>
+                <div class="testimonials-card-bg">
+                  <div class="testimonials-card-inner">
+                    <p class="padding-bottom-twenty-five">
+                      {{ testimonial.review }}
+                    </p>
+                    <div class="testimonials-author-flex">
+                      <div class="heading-six">{{ testimonial.author }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 50px; margin-top: 5rem">
+          <div class="testimonials-arrow w-icon-slider-left testimonials-arrow-left"></div>
+          <div class="testimonials-arrow w-icon-slider-right testimonials-arrow-right"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section Ends Here -->
+    
+    <!-- Footer Section Starts Here -->
+    {% include "footer/footer.html" %}
+    <!-- Footer Section Ends Here -->
+     
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/webflow.js' %}"></script>
+    <script src="{% static 'js/swiper.js' %}"></script>
+    <script src="{% static 'js/swiper-settings.js' %}"></script>
+  </body>
+</html>

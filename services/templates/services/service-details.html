@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-wf-page="64ddb2f80e56ffe6218ca2f0" data-wf-site="649a95c241c0447e7e6ce0d5" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Classic Builders Inc. is a full-service general contractor specializing in building and remodeling services such as design-build, residential, concrete, plumbing,..."
+    />
+    <meta name="keywords" content="Classic Builders Inc." />
+    <link href="{% static 'images/fav-2.png' %}" rel="shortcut icon" type="image/x-icon" />
+    <title>Best General Contracting Company | Classic Builders Inc</title>
+    <link rel="stylesheet" href="{% static 'css/webflow.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tw.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <!-- Navbar Section Starts Here -->
+    {% include "navigator/navbar.html" %}
+    <!-- Navbar Section Ends Here -->
+
+    <!-- Main Service Section Starts Here -->
+    <section class="home-two-choose-section" style="background-image: url('{% static 'images/64c119d532d89bfc9af99b74_Choose%20Bg.webp' %}') !important;">
+      <div class="w-layout-blockcontainer home-two-choose-section-container w-container">
+        <div class="home-two-choose-section-flex">
+          <div class="home-one-choose-content-block">
+            {{ service.description|safe }}
+          </div>
+          <div data-w-id="4451d4ec-93cf-e766-5bac-b20e6a932690" class="home-one-choose-image-block">
+            <div class="home-one-about-yellow-bg home-one-why-choose-yellow-bg"></div>
+            <div data-w-id="4451d4ec-93cf-e766-5bac-b20e6a932693" class="creative-image-block swiper-slide">
+              <img src="{{ service.image.url }}" alt="{{ service.alt_image }}" class="responsive-full-width cover-image image-shadow" />
+              <div style="
+                  display: block;
+                  transform: translate3d(0px, 0px, 0px) scale3d(1, 0, 1)
+                    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+                    skew(0deg, 0deg);
+                  transform-style: preserve-3d;
+                " class="overlay-img"></div>
+            </div>
+          </div>
+        </div>
+        <div class="home-one-hero-btn-flex hero-btn-flex" style="margin-top: 2rem;">
+                <a href="###" role="button" class="body-button bg-goldenrod text-color-black w-inline-block get-started-button">
+                  <div>{{ service.book_now_button_text }}</div>
+                  <img width="20" height="12" src="{% static 'images/649a9828a92bde00c8238b3d_White%20Arrow.svg' %}" alt="White Medium Arrow" class="black-icons">
+                </a>
+                <a href="###" class="home-one-hero-call-block underline-off body-button call-button">
+                  <img src="{% static "images/64c21b86baf5db5f0f9ea5cb_Call%20Icons.svg" %}" alt="Call Icons">
+                  <div class="flex flex-column align-align-start">
+                    <div class="contact-no">
+                      <p class="text-color-white margin-0">Call Us Now</p>
+                      <p class="text-color-white margin-0">(818) 521-4278</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+      </div>
+    </section>
+    <!-- Main Service Section Ends Here -->
+
+    <!-- Before | After Section Starts Here -->
+    <section style="margin-top: 3rem; margin-bottom: 10rem;">
+        <div style="margin: 2rem;">
+            <h2 class="home-two-choose-section-container margin-top-seventeen padding-bottom-fifteen" style="margin: auto;">{{ service.before_after_heading }}</h2>
+        </div>
+        <div class="col-md-12 mb-5 text-middle wow fadeInUp animated home-two-choose-section-container home-two-choose-section-container" data-wow-delay=".2s" style="
+            visibility: visible;
+            animation-delay: 0.2s;
+            animation-name: fadeInUp;
+            background-size: cover;
+            margin: auto;
+          ">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal" style="background-size: cover">
+            <div class="twentytwenty-container img-rounded shadow" style="height: 729px; background-size: cover">
+              <img src="{{ service.before_image.url }}" alt="{{ service.alt_before_image }}" class="img-responsive twentytwenty-before" style="clip: rect(0px, 627.5px, 729px, 0px)" />
+              <img src="{{ service.after_image.url }}" alt="{{ service.alt_after_image }}" class="img-responsive twentytwenty-after" style="clip: rect(0px, 1296px, 729px, 627.5px)" />
+              <div class="twentytwenty-overlay" style="background-size: cover">
+                <div class="twentytwenty-before-label" data-content="Before" style="background-size: cover"></div>
+                <div class="twentytwenty-after-label" data-content="After" style="background-size: cover"></div>
+              </div>
+              <div class="twentytwenty-handle" style="left: 627.5px; background-size: cover">
+                <span class="twentytwenty-left-arrow"></span>
+                <span class="twentytwenty-right-arrow"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!-- Before | After Section Ends Here -->
+    
+    <!-- Footer Section Starts Here -->
+    {% include "footer/footer.html" %}
+    <!-- Footer Section Ends Here -->
+     
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/jquery-event-move.js' %}"></script>
+    <script src="{% static 'js/jquery-twenty-twenty.js' %}"></script>
+    <script src="{% static 'js/twenty-twenty.js' %}"></script>
+    <script src="{% static 'js/webflow.js' %}"></script>
+  </body>
+</html>

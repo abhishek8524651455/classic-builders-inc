@@ -1,0 +1,106 @@
+{% load static %}
+<footer class="footer">
+  <div class="talk">
+    <div class="talk-flex">
+      <div class="talk-inner-flex">
+        <div class="large-heading text-color-white">let’s Talk</div>
+        <img
+          src="{% static 'images/649d690e57c468e532503fa6_Cta%20Arrow.svg' %}"
+          alt="CTA Arrow"
+          width="52"
+          height="50"
+        />
+      </div>
+      <a
+        role="button"
+        href="{% url "contact_us:contact-us" %}"
+        class="body-button bg-goldenrod text-color-black w-inline-block"
+      >
+        <div>Get In Touch</div>
+        <img
+          src="{% static 'images/649a9828a92bde00c8238b3d_White%20Arrow.svg' %}"
+          alt="White Medium Arrow"
+          height="12"
+          width="20"
+          class="black-icons"
+        />
+      </a>
+    </div>
+  </div>
+  <div class="cta-line"></div>
+  <div class="footer-top-block">
+    <div class="w-layout-blockcontainer container-one w-container">
+      <div class="w-layout-grid footer-grid">
+        <div class="footer-block">
+          <div class="footer-title padding-bottom-ten">Quick Link</div>
+          <a href="{% url "home:home" %}" class="footer-item underline-off">Home</a>
+          <a href="{% url "about_us:about-us" %}" class="footer-item underline-off">About</a>
+          <a href="{% url "services:services" %}" class="footer-item underline-off">Services</a>
+          <a href="{% url "news:news" %}" class="footer-item underline-off">News</a>
+          <a href="{% url "contact_us:contact-us" %}" class="footer-item underline-off">Contact</a>
+        </div>
+        <div class="footer-block">
+          <div class="footer-title padding-bottom-ten">SERVICES</div>
+          <a href="general_contracting.html" aria-current="page" class="footer-item underline-off w--current">General Contracting</a>
+          <a href="residential.html" class="footer-item underline-off">Residential</a>
+          <a href="light_commercial.html" class="footer-item underline-off">Light Commercial</a>
+          <a href="design_build.html" class="footer-item underline-off">Design & Build</a>
+          <a href="new_builds.html" class="footer-item underline-off">New builds</a>
+        </div>
+        <div class="footer-block">
+          <div class="footer-title padding-bottom-ten"></div>
+          <a href="full-remodels.html" aria-current="page" class="footer-item underline-off w--current">Full remodels</a>
+          <a href="concrete-work.html" class="footer-item underline-off">Concrete work</a>
+          <a href="foundations.html" class="footer-item underline-off">Foundations</a>
+          <a href="electrical.html" class="footer-item underline-off">Electrical</a>
+          <a href="plumbing.html" class="footer-item underline-off">Plumbing</a>
+          <a href="hvac.html" class="footer-item underline-off">HVAC</a>
+        </div>
+        <div class="footer-block">
+          <div class="footer-title padding-bottom-ten">Find Us</div>
+          <div class="footer-address">{{ contact_data.address }}</div>
+          <a href="{{ contact_data.phone_number_link }}" class="footer-item underline-off">{{ contact_data.phone_number }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-line"></div>
+  <div class="footer-bottom-block">
+    <div class="w-layout-blockcontainer container-one w-container">
+      <div class="w-layout-grid footer-bottom-grid">
+        <a href="{% url "home:home" %}" class="konstruk-logo flex-center w-inline-block" style="padding: 23px 0;">
+          <img src="{% static 'images/logo-2-w.png' %}" alt="Logo" width="182" style="width: 130px;" />
+        </a>
+        <div class="footer-text-block align-center">
+          <div class="footer-text">
+            All rights reserved by <span>{{ contact_data.company_name }}</span> | Designed By
+            <a href="https://zonewebsites.us/" target="_blank" class="footer-text-link underline-off">Zonewebsites</a>
+          </div>
+        </div>
+        <div class="social-icons-footer-one">
+          <a href="{{ contact_data.facebook_link }}" target="_blank" class="social-icons-footer-one-link w-inline-block">
+            <div class="social-overlay"></div>
+            <div class="social-icons-block">
+              <img src="{% static 'images/649d690e42f0800f8b612441_facebook.svg' %}" alt="Facebook Icons" width="24" height="24" class="social-white-icons" />
+              <img src="{% static 'images/64ba1d15225b61b81b64fc54_Facebook%20Black.svg' %}" alt="Social Icons" width="24" height="24" class="social-black-icons" />
+            </div>
+          </a>
+          <a href="{{ contact_data.twitter_link }}" target="_blank" class="social-icons-footer-one-link w-inline-block">
+            <div class="social-overlay"></div>
+            <div class="social-icons-block">
+              <img src="{% static 'images/649d69159bf5418a3d2595bf_twitter.svg' %}" alt="Twitter Icons" width="24" height="24" class="social-white-icons" />
+              <img src="{% static 'images/64ba1d0f0ecd3dee9781a358_Twitter%20Black.svg' %}" alt="Twitter Icons" width="24" height="24" class="social-black-icons" />
+            </div>
+          </a>
+          <a href="{{ contact_data.linkedin_link }}" target="_blank" class="social-icons-footer-one-link w-inline-block">
+            <div class="social-overlay"></div>
+            <div class="social-icons-block">
+              <img src="{% static 'images/649d69132e2ca9bf62dea901_linkedin.svg' %}" alt="LinkedIn Icons" width="24" height="24" class="social-white-icons" />
+              <img src="{% static 'images/64ba1d0f3e598ba215642281_Linkedin%20Black.svg' %}" alt="LinkedIn Icons" width="24" height="24" class="social-black-icons" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

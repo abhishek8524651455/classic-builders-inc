@@ -1,0 +1,60 @@
+{% load static %}
+
+<header class="header-three header-two">
+  <div class="w-layout-blockcontainer container-one home-one-header-one-flex w-container">
+    <div class="konstruk-logo">
+      <a role="link" href="{% url "home:home" %}" class="overflow-hidden w-inline-block">
+        <img src="{% static 'images/logo-2.png' %}" loading="lazy" alt="Black Logo" class="black-logo" />
+      </a>
+    </div>
+    <div class="menu-list">
+      <a href="{% url "home:home" %}" class="single-menu w-inline-block">
+        <div data-w-id="7a903ae4-0ad5-41f9-ea7a-081a9078a2c7" class="menu-roll-text">
+          <div class="menu-text-block text-color-black">Home</div>
+          <div class="menu-text-block text-color-black">Home</div>
+        </div>
+      </a>
+      <a href="{% url "about_us:about-us" %}" class="single-menu w-inline-block">
+        <div data-w-id="7a903ae4-0ad5-41f9-ea7a-081a9078a2c7" class="menu-roll-text">
+          <div class="menu-text-block text-color-black">About Us</div>
+          <div class="menu-text-block text-color-black">About Us</div>
+        </div>
+      </a>
+      <a href="{% url "services:services" %}" class="single-menu w-inline-block">
+        <div data-w-id="7a903ae4-0ad5-41f9-ea7a-081a9078a2c7" class="menu-roll-text">
+          <div class="menu-text-block text-color-black">Services</div>
+          <div class="menu-text-block text-color-black">Services</div>
+        </div>
+      </a>
+      <a href="{% url "news:news" %}" class="single-menu w-inline-block">
+        <div data-w-id="7a903ae4-0ad5-41f9-ea7a-081a9078a2c7" class="menu-roll-text">
+          <div class="menu-text-block text-color-black">News</div>
+          <div class="menu-text-block text-color-black">News</div>
+        </div>
+      </a>
+      <a href="{% url "contact_us:contact-us" %}" class="single-menu w-inline-block">
+        <div data-w-id="7a903ae4-0ad5-41f9-ea7a-081a9078a2c7" class="menu-roll-text">
+          <div class="menu-text-block text-color-black">Contact Us</div>
+          <div class="menu-text-block text-color-black">Contact Us</div>
+        </div>
+      </a>
+    </div>
+    <div class="trigger-menu">
+      <div class="call-wrapper">
+        <img src="{% static 'images/649ae42cbdb72fb59ef8bcbe_Call.svg' %}" alt="Call Icons" width="24" height="24" />
+        <div>
+          <div class="call-text">Call Us Now</div>
+          <a role="link" href="{{ contact_data.phone_number_link }}" class="underline-off w-inline-block">
+            <div class="call-text">{{ contact_data.phone_number }}</div>
+          </a>
+        </div>
+      </div>
+      <div class="cart-icons"></div>
+      <div data-w-id="0e852acb-e2f9-89f3-c543-295664f5d073" class="trigger-menu-icon-block home-two-trigger">
+        <div class="menu-line menu-top"></div>
+        <div class="menu-line middle"></div>
+        <div class="menu-line menu-bottom"></div>
+      </div>
+    </div>
+  </div>
+</header>
